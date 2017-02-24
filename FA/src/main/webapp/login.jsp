@@ -29,8 +29,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <h2 class="form-heading">固定资产管理系统登录</h2>
   <div class="app-cam">
 	  <form>
-		<input type="text" class="text" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';}">
-		<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+		<input type="text" class="text" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}">
+		<input type="password" value="密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '密码';}">
 		<div class="submit"><input type="submit" onclick="myFunction()" value="Login"></div>
 	</form>
   </div>
