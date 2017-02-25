@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-2-25 19:54:26 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ywg.model.Roletofun" table="roletofun" catalog="test" optimistic-lock="version">
+        <id name="roleId" type="int">
+            <column name="roleID" />
+            <generator class="foreign">
+                <param name="property">TRole</param>
+            </generator>
+        </id>
+        <many-to-one name="TFun" class="com.ywg.model.TFun" fetch="select">
+            <column name="funID" />
+        </many-to-one>
+        <one-to-one name="TRole" class="com.ywg.model.TRole" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

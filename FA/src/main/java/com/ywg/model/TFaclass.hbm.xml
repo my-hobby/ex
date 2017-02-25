@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-2-25 19:54:26 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ywg.model.TFaclass" table="t_faclass" catalog="test" optimistic-lock="version">
+        <id name="faclassId" type="int">
+            <column name="FAClassID" />
+            <generator class="assigned" />
+        </id>
+        <property name="faclassName" type="string">
+            <column name="FAClassName" />
+        </property>
+        <property name="faclassParentId" type="java.lang.Integer">
+            <column name="FAClassParentID" />
+        </property>
+    </class>
+</hibernate-mapping>

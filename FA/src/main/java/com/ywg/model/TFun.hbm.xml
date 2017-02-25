@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-2-25 19:54:26 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ywg.model.TFun" table="t_fun" catalog="test" optimistic-lock="version">
+        <composite-id name="id" class="com.ywg.model.TFunId">
+            <key-property name="funId" type="java.lang.Integer">
+                <column name="funID" />
+            </key-property>
+            <key-property name="funName" type="string">
+                <column name="funName" />
+            </key-property>
+            <key-property name="funUrl" type="string">
+                <column name="funURL" />
+            </key-property>
+        </composite-id>
+        <set name="roletofuns" table="roletofun" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="funID" />
+            </key>
+            <one-to-many class="com.ywg.model.Roletofun" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-2-25 19:54:26 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ywg.model.TRole" table="t_role" catalog="test" optimistic-lock="version">
+        <id name="roleId" type="int">
+            <column name="roleID" />
+            <generator class="assigned" />
+        </id>
+        <property name="roleName" type="string">
+            <column name="roleName" />
+        </property>
+        <one-to-one name="roletofun" class="com.ywg.model.Roletofun"></one-to-one>
+        <set name="usertoroles" table="usertorole" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="roleID" />
+            </key>
+            <one-to-many class="com.ywg.model.Usertorole" />
+        </set>
+    </class>
+</hibernate-mapping>
