@@ -17,61 +17,56 @@ public class LoginAction extends BaseAction {
 	private LoginServlet loginServlet;
 	private String userName;
 	private String password;
-	private String flag;
-
 
 	public void setLoginServlet(LoginServlet loginServlet) {
 		this.loginServlet = loginServlet;
 	}
 
-
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
 
-	public void setFlag(String flag) {
-		this.flag = flag;
-	}
-
 
 	public String getUserName() {
 		return userName;
 	}
 
-
 	public String getPassword() {
 		return password;
 	}
 
-
-	public String getFlag() {
-		return flag;
-	}
-                                                                                                                                                                                                                                                                                                     
-
 	@Override
 	public String execute() throws Exception {
-		ApplicationUtil a=new ApplicationUtil();
-		HttpSession session=getRequest().getSession(); 
-		ServletContext servletContext =session.getServletContext(); 
-        ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(servletContext); 
-		a.setApplicationContext(context );
+		ApplicationUtil a = new ApplicationUtil();
+		HttpSession session = getRequest().getSession();
+		ServletContext servletContext = session.getServletContext();
+		ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+		a.setApplicationContext(context);
+		// 判断是否有用户存在
 		TUser user = (TUser) loginServlet.login(userName, password);
-		if(user==null)return "login";
-		Integer rightsId=user.getTblRights().getRighId();
-		IBaseDao<TblRights, Integer> DAO =(IBaseDao<TblRights, Integer>) ApplicationUtil.getBean("BaseDao");
-		DAO.setEntityClass(TblRights.class);
-		TblRights t=DAO.get(rightsId);
-		user.setTblRights(t);
-		session.setAttribute("user", user);
+		if (user == null) {
+		    String f=(String) session.getAttribute("flag");
+			int i = 0;
+			if(f==null||f.equals("")){
+				i=1;
+			}else{
+				i=Integer.parseInt(f);
+				++i;
+			}
+			f=i+"";
+			session.setAttribute("flag",f );
+			//是否显示错误信息0是1否
+			session.setAttribute("show",0 );
+			return "login";
+		}
+		session.setAttribute("flag",'0' );
 		return SUCCESS;
-				
+
 	}
 
 }

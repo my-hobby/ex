@@ -1,5 +1,5 @@
 package com.ywg.model;
-// Generated 2017-2-25 19:54:26 by Hibernate Tools 5.2.0.CR1
+// Generated 2017-2-26 13:23:03 by Hibernate Tools 5.2.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,35 +9,55 @@ import java.util.Set;
  */
 public class TFun implements java.io.Serializable {
 
-	private TFunId id;
-	private Set roletofuns = new HashSet(0);
+	private int funId;
+	private String funName;
+	private String funUrl;
+	private Set TRoles = new HashSet(0);
 
 	public TFun() {
 	}
 
-	public TFun(TFunId id) {
-		this.id = id;
+	public TFun(int funId) {
+		this.funId = funId;
 	}
 
-	public TFun(TFunId id, Set roletofuns) {
-		this.id = id;
-		this.roletofuns = roletofuns;
+	public TFun(int funId, String funName, String funUrl, Set TRoles) {
+		this.funId = funId;
+		this.funName = funName;
+		this.funUrl = funUrl;
+		this.TRoles = TRoles;
 	}
 
-	public TFunId getId() {
-		return this.id;
+	public int getFunId() {
+		return this.funId;
 	}
 
-	public void setId(TFunId id) {
-		this.id = id;
+	public void setFunId(int funId) {
+		this.funId = funId;
 	}
 
-	public Set getRoletofuns() {
-		return this.roletofuns;
+	public String getFunName() {
+		return this.funName;
 	}
 
-	public void setRoletofuns(Set roletofuns) {
-		this.roletofuns = roletofuns;
+	public void setFunName(String funName) {
+		this.funName = funName;
+	}
+
+	public String getFunUrl() {
+		return this.funUrl;
+	}
+
+	public void setFunUrl(String funUrl) {
+		this.funUrl = funUrl;
+	}
+
+	public Set getTRoles() {
+		return this.TRoles;
+	}
+
+	public void setTRoles(Set TRoles) {
+		this.TRoles = TRoles;
 	}
 
 }

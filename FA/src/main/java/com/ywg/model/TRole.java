@@ -1,5 +1,5 @@
 package com.ywg.model;
-// Generated 2017-2-25 19:54:26 by Hibernate Tools 5.2.0.CR1
+// Generated 2017-2-26 13:23:03 by Hibernate Tools 5.2.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,8 +11,8 @@ public class TRole implements java.io.Serializable {
 
 	private int roleId;
 	private String roleName;
-	private Roletofun roletofun;
-	private Set usertoroles = new HashSet(0);
+	private Set TFuns = new HashSet(0);
+	private Set TUsers = new HashSet(0);
 
 	public TRole() {
 	}
@@ -21,11 +21,11 @@ public class TRole implements java.io.Serializable {
 		this.roleId = roleId;
 	}
 
-	public TRole(int roleId, String roleName, Roletofun roletofun, Set usertoroles) {
+	public TRole(int roleId, String roleName, Set TFuns, Set TUsers) {
 		this.roleId = roleId;
 		this.roleName = roleName;
-		this.roletofun = roletofun;
-		this.usertoroles = usertoroles;
+		this.TFuns = TFuns;
+		this.TUsers = TUsers;
 	}
 
 	public int getRoleId() {
@@ -44,20 +44,20 @@ public class TRole implements java.io.Serializable {
 		this.roleName = roleName;
 	}
 
-	public Roletofun getRoletofun() {
-		return this.roletofun;
+	public Set getTFuns() {
+		return this.TFuns;
 	}
 
-	public void setRoletofun(Roletofun roletofun) {
-		this.roletofun = roletofun;
+	public void setTFuns(Set TFuns) {
+		this.TFuns = TFuns;
 	}
 
-	public Set getUsertoroles() {
-		return this.usertoroles;
+	public Set getTUsers() {
+		return this.TUsers;
 	}
 
-	public void setUsertoroles(Set usertoroles) {
-		this.usertoroles = usertoroles;
+	public void setTUsers(Set TUsers) {
+		this.TUsers = TUsers;
 	}
 
 }

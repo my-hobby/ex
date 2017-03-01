@@ -11,12 +11,12 @@
 	<package name="vcs-base" extends="struts-default">
 		<!-- 配置全局结果 -->
 		<global-results>
-			<result name="login">/login.jsp</result>
+			<result name="login" type="redirect">/jsp/login.jsp</result>
 		</global-results>
 	</package>
 	<package name="struts2" extends="vcs-base">
 		<action name="LoginAction" class="com.ywg.action.LoginAction">
-			<result name="success">/page/main.jsp</result>
+			<result name="success">/jsp/main/main.jsp</result>
 		</action>
 		
 	</package>

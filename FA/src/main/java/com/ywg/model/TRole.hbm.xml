@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-2-25 19:54:26 by Hibernate Tools 5.2.0.CR1 -->
+<!-- Generated 2017-2-26 13:23:03 by Hibernate Tools 5.2.0.CR1 -->
 <hibernate-mapping>
     <class name="com.ywg.model.TRole" table="t_role" catalog="test" optimistic-lock="version">
         <id name="roleId" type="int">
@@ -11,12 +11,21 @@
         <property name="roleName" type="string">
             <column name="roleName" />
         </property>
-        <one-to-one name="roletofun" class="com.ywg.model.Roletofun"></one-to-one>
-        <set name="usertoroles" table="usertorole" inverse="true" lazy="true" fetch="select">
+        <set name="TFuns" table="roletofun" inverse="false" lazy="true" fetch="select">
             <key>
-                <column name="roleID" />
+                <column name="roleID" not-null="true" />
             </key>
-            <one-to-many class="com.ywg.model.Usertorole" />
+            <many-to-many entity-name="com.ywg.model.TFun">
+                <column name="funID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="TUsers" table="usertorole" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="roleID" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.ywg.model.TUser">
+                <column name="userID" not-null="true" />
+            </many-to-many>
         </set>
     </class>
 </hibernate-mapping>

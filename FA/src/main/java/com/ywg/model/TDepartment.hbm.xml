@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-2-26 13:23:03 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ywg.model.TDepartment" table="t_department" catalog="test" optimistic-lock="version">
+        <id name="departmentId" type="int">
+            <column name="departmentID" />
+            <generator class="assigned" />
+        </id>
+        <property name="departmentName" type="string">
+            <column name="departmentName" />
+        </property>
+        <set name="TFas" table="t_fa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="userDepartments" />
+            </key>
+            <one-to-many class="com.ywg.model.TFa" />
+        </set>
+        <set name="TDepots" table="t_depot" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="department" />
+            </key>
+            <one-to-many class="com.ywg.model.TDepot" />
+        </set>
+    </class>
+</hibernate-mapping>

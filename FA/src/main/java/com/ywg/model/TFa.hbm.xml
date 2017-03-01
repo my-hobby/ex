@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-2-26 13:23:03 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ywg.model.TFa" table="t_fa" catalog="test" optimistic-lock="version">
+        <id name="faid" type="int">
+            <column name="FAID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="TDepartment" class="com.ywg.model.TDepartment" fetch="select">
+            <column name="userDepartments" />
+        </many-to-one>
+        <many-to-one name="TDepot" class="com.ywg.model.TDepot" fetch="select">
+            <column name="location" />
+        </many-to-one>
+        <many-to-one name="TFaclass" class="com.ywg.model.TFaclass" fetch="select">
+            <column name="FAclassID" />
+        </many-to-one>
+        <many-to-one name="TFaunit" class="com.ywg.model.TFaunit" fetch="select">
+            <column name="unitID" />
+        </many-to-one>
+        <property name="faname" type="string">
+            <column name="FAName" />
+        </property>
+        <property name="number" type="java.lang.Integer">
+            <column name="number" />
+        </property>
+        <property name="model" type="string">
+            <column name="model" />
+        </property>
+        <property name="manufactor" type="string">
+            <column name="manufactor" />
+        </property>
+        <property name="dom" type="string">
+            <column name="DOM" />
+        </property>
+        <property name="source" type="string">
+            <column name="source" />
+        </property>
+        <property name="pic" type="string">
+            <column name="PIC" />
+        </property>
+        <property name="userLife" type="java.lang.Integer">
+            <column name="userLife" />
+        </property>
+        <property name="postingDate" type="timestamp">
+            <column name="postingDate" length="19" />
+        </property>
+        <property name="netSalvage" type="java.lang.Double">
+            <column name="NetSalvage" precision="255" scale="0" />
+        </property>
+        <property name="univalent" type="java.lang.Double">
+            <column name="univalent" precision="255" scale="0" />
+        </property>
+        <property name="ps" type="string">
+            <column name="PS" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" />
+        </property>
+    </class>
+</hibernate-mapping>

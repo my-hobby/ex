@@ -6,7 +6,15 @@
 <hibernate-configuration>
 
 	<session-factory>
-
+		<mapping resource="com/ywg/model/TDepartment.hbm.xml" />
+		<mapping resource="com/ywg/model/TUser.hbm.xml" />
+		<mapping resource="com/ywg/model/TRole.hbm.xml" />
+		<mapping resource="com/ywg/model/TFun.hbm.xml" />
+		<mapping resource="com/ywg/model/TFaunit.hbm.xml" />
+		<mapping resource="com/ywg/model/TFaclass.hbm.xml" />
+		<mapping resource="com/ywg/model/TDepot.hbm.xml" />
+		<mapping resource="com/ywg/model/TFa.hbm.xml" />
+		
 
 	</session-factory>
 

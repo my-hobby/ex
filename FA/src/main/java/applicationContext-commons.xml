@@ -128,34 +128,4 @@
 	</bean>
 
 
-	<!-- 获取json -->
-	<bean id="jsonServlet" class="com.ywg.webServlet.impl.JsonServletImpl">
-	</bean>
-	<bean name="jsonAction" class="com.ywg.action.JsonAction" scope="prototype">
-		<property name="jsonServlet" ref="jsonServlet"></property>
-	</bean>
-
-	<!-- 系统操作 -->
-	<bean id="systemServlet" class="com.ywg.webServlet.impl.SystemServletImpl">
-		<property name="DAO" ref="BaseDao"></property>
-
-	</bean>
-	<bean name="systemAction" class="com.ywg.action.SystemAction"
-		scope="prototype">
-		<property name="systemServlet" ref="systemServlet"></property>
-	</bean>
-	<!-- 基本数据操作 -->
-	<bean id="dataServlet" class="com.ywg.webServlet.impl.DataServletImpl">
-	</bean>
-	<bean name="dataAction" class="com.ywg.action.DataAction" scope="prototype">
-		<property name="dataServlet" ref="dataServlet"></property>
-	</bean>
-	<!-- 固定资产操作 -->
-	<bean id="assetServlet" class="com.ywg.webServlet.impl.AssetServletImpl">
-		<property name="DAO" ref="BaseDao"></property>
-
-	</bean>
-	<bean name="assetAction" class="com.ywg.action.AssetAction" scope="prototype">
-		<property name="assetServlet" ref="assetServlet"></property>
-	</bean>
 </beans>
